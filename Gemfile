@@ -35,6 +35,18 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Use Paperclip for file attatchments
+gem "paperclip", "~> 5.0.0"
+
+# Use Simple Form for form entry
+gem 'simple_form'
+
+# Use Figaro for ENV vars
+gem 'figaro'
+
+# Use zxing for code decoding
+gem "zxing_cpp", "~> 0.1.1"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
@@ -49,5 +61,12 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+group :development do
+  # Environment stuff
+  gem 'guard', require: false
+  gem 'guard-rubycritic', require: false
+  gem 'guard-bundler', require: false
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
