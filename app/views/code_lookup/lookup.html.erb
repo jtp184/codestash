@@ -1,2 +1,20 @@
 <h1>CodeLookup#lookup</h1>
-<p>Find me in app/views/code_lookup/lookup.html.erb</p>
+
+<p><%= flash[:notice] if flash[:notice] %></p>
+
+<%= (image_tag (asset_path "upload_button.png"), class: "center", id: "button", size: 60) %>
+<div id="upload_pane">
+	<%= form_tag({action: :upload}, multipart: true) do %>
+	<%= file_field_tag :picture, {id: "upload_button", class: "upload_dialog", style: "display: none;"} %>
+	<%= submit_tag "", {id: "submit_button", style: "display: none;"} %>
+	<% end %>
+</div>
+
+<script type="text/javascript">
+	document.getElementById("upload_button").onchange = function() {
+		document.getElementsByTagName("form")[0].submit();
+	};
+	document.getElementById("button").onclick = function() { 
+		document.getElementById("upload_button").click();
+	};
+</script>
