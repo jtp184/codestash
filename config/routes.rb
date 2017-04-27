@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
+  get 'post/new_post'
+  get 'post/create_post'
+  get 'post/add_item'
+
+  get 'post/view'
+
   get 'code_lookup/lookup'
+  get 'code_lookup/show'
 
   post 'code_lookup/upload'
 

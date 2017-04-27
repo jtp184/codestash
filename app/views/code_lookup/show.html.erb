@@ -1,0 +1,14 @@
+<ul>
+	<li class="list_box">
+		<p>
+			<%= link_to "new", {:controller => 'post', :action => 'create_post', :cid => params[:cid]} %>
+		</p>
+	</li>
+	<% @stashes.each do |stash| %>
+	<li class="list_box">
+		<p>
+			<%= link_to stash.display_text, {:controller => 'post', :action => 'view', :id => stash.id} %>
+		</p>
+	</li>
+	<% end %>
+</ul>

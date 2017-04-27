@@ -1,0 +1,20 @@
+<li class="list_box">
+	<ul class="list_item">
+		<li class="type_box" class="no_border">
+			<p class="type_label">
+				<%= local_assigns[:label] %>	
+			</p>
+		</li>
+		<li class="name_box name_label" class="no_border">
+			<% if local_assigns[:links] == true %>
+			<a class="name_label" href="<%= local_assigns[:link] %>">
+				<%= local_assigns[:name] %>
+			</p>
+			<% else %>
+			<p class="name_label">
+				<%= local_assigns[:name] %>
+			</p>
+			<% end %>
+		</li>
+	</ul>
+</li>

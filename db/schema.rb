@@ -19,17 +19,24 @@ ActiveRecord::Schema.define(version: 20170423235129) do
   end
 
   create_table "stash_elements", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.integer  "stash_id"
+    t.text     "text_content",      limit: 65535
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "file_file_name"
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
+    t.index ["stash_id"], name: "index_stash_elements_on_stash_id", using: :btree
   end
 
   create_table "stashes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "code_id"
+    t.string   "author"
+    t.boolean  "finalized"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["code_id"], name: "index_stashes_on_code_id", using: :btree
   end
 
 end

@@ -1,0 +1,16 @@
+<ul>
+	<% @elements.each do |element| %>
+	<li class="list_box">
+		<p>
+			<%= render "generic", label: element.label, name: element.name, content: element.content_string %>
+		</p>
+	</li>
+	<% end %>
+</ul>
+<ul>
+	<% StashElement::CONTENT_TYPES.each do |type| %>
+	<li class = "button_box">
+		<%= link_to "#{type}", {:action => "add_item", :kind => type} %>
+	</li>
+	<% end %>
+</ul>

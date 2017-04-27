@@ -1,0 +1,14 @@
+<% case params[:kind] %>
+<% when :text %> 
+<%= render "text_entry", kind: "text" %>
+<% when :sms %> 
+<%= render "sms_entry" %>
+<% when :location %> 
+<%= render "location_entry"%>
+<% when :photo %> 
+<%= render "file_upload", kind: "photo" %>
+<% when :file %> 
+<%= render "file_upload", kind: "file" %>
+<% when :link %>
+<%= render "text_entry", kind: "link" %>
+<% end %>
