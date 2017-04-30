@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'post/new_post'
   get 'post/create_post'
+  get 'post/finish_post'
+  get 'post/cancel_post'
   get 'post/add_item'
 
   get 'post/view'

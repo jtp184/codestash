@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20170423235129) do
   create_table "stash_elements", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "stash_id"
     t.text     "text_content",      limit: 65535
+    t.string   "kind"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.string   "file_file_name"

@@ -2,7 +2,7 @@
 	<% @elements.each do |element| %>
 	<li class="list_box">
 		<p>
-			<%= render "generic", label: element.label, name: element.name, content: element.content_string %>
+			<%= render "generic", label: element.label, kind: element.kind, content: element.content_string %>
 		</p>
 	</li>
 	<% end %>
@@ -13,4 +13,10 @@
 		<%= link_to "#{type}", {:action => "add_item", :kind => type} %>
 	</li>
 	<% end %>
+	<li class = "button_box">
+		<%= link_to "Finalize Stash", {:action => "finish_post"} %>
+	</li>
+	<li class = "button_box">
+		<%= link_to "Discard Stash", {:action => "cancel_post"} %>
+	</li>
 </ul>

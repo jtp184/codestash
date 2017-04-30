@@ -12,10 +12,23 @@ class PostController < ApplicationController
   	@elements = @stash.stash_elements
   end
 
+  def add_item
+    @stash = Stash.find(session[:stash_id])
+    @this_element = @stash.stash_elements << StashElement.new
+  end
+
   def view
   end
 
-  def finish_stash
-  	Stash.finish(session[:stash_id])
+  def finish_post
+    redirect_to controller: code, action: show, cid: Stash.finish(session[:stash_id])
+  end
+
+  def cancel_post
+    redirect_to controller: code, action: show, cid: Stash.cancel(session[:stash_id])
+  end
+
+  def img_from_kind
+  	""
   end
 end

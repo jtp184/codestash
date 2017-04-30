@@ -8,7 +8,14 @@ class Stash < ApplicationRecord
 		x = self.find(idnum)
 		x.finalized = true
 		x.save
-		x
+		x.code.id
+	end
+
+	def self.cancel(idnum)
+		x = self.find(idnum)
+		ret = x.code.id
+		x.destroy
+		ret
 	end
 
 	def display_text
