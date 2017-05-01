@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resource :stash_element
+
   get 'post/new_post'
   get 'post/create_post'
   get 'post/finish_post'

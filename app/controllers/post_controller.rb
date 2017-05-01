@@ -14,10 +14,25 @@ class PostController < ApplicationController
 
   def add_item
     @stash = Stash.find(session[:stash_id])
-    @this_element = @stash.stash_elements << StashElement.new
+    @this_element = StashElement.new
+    @stash.stash_elements << @this_element
+  end
+
+  def cancel_add_item
+    to_remove = StashElement.find(params[:eid])
+    to_remove.destroy
+    redirect_to action: 'new_post'
   end
 
   def view
+  end
+
+  def post_sms
+    number = params[:tel]
+    result = "sms:#{number}"
+  end
+
+  def post_location
   end
 
   def finish_post
