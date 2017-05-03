@@ -1,29 +1,16 @@
-<% case params[:kind] %>
-<% when 'text'%> 
-	<%= simple_form_for @stash_element do |f| %>
-		<%= f.input :text_content, as: :text, label: "Text"%>
-		<%= f.submit "Add" %>
-	<% end %>
-<% when 'link' %>
-	<%= simple_form_for @stash_element do |f| %>
-		<%= f.input :text_content, as: :string, label: "Link" %>
-		<%= f.submit "Add" %>
-	<% end %>
-<% when 'sms' %>
-	<%= simple_form_for @stash_element do |f| %>
-		<%= f.input :text_content, as: :text, label: "Phone Number"%>
-		<%= f.submit "Add" %>
-	<% end %>
-<% when 'location' %>
-	<button type="button" onclick="loadGeoLocation()">Locate Me</button>
-	<%= form_tag("post_" << params[:kind], method: "get") do %>
-		<%= text_field_tag(:lat, "", {style: "display: none;"}) %>
-		<%= text_field_tag(:long, "", {style: "display: none;"}) %>
-		<%= submit_tag("Add") %> 
-	<% end %>
-<% when 'photo', 'file' %>
-	<%= simple_form_for @stash_element do |f| %>
-		<%= f.input :file, as: :file, label: "Upload #{params[:kind]}" %>
-		<%= f.button :submit, label: "Add" %>
-	<% end %> 
+<%= simple_form_for @stash_element do |f| %>
+	<% case params[:kind] %>
+		<% when 'text'%> 
+			<%= f.input :text_content, as: :text, label: "Text"%>
+		<% when 'link' %>
+			<%= f.input :text_content, as: :string, label: "Link" %>
+		<% when 'sms' %>
+			<%= f.input :text_content, as: :text, label: "Phone Number"%>
+		<% when 'location' %>
+			<%= f.input :text_content, as: :text, label: "Coordinates"%>
+			<button type="button" onclick="loadGeoLocation()">Locate Me</button>
+		<% when 'photo', 'file' %>
+			<%= f.input :file, as: :file, label: "Upload #{params[:kind]}" %>
+		<% end %> 
+			<%= f.button :submit, label: "Add" %>
 <% end %>
