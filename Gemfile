@@ -33,7 +33,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'capistrano'
+gem 'capistrano-rails'
+gem 'capistrano-passenger'
+gem 'capistrano-rbenv'
 
 # Use Paperclip for file attatchments
 gem "paperclip", "~> 5.0.0"
@@ -46,6 +49,9 @@ gem 'figaro'
 
 # Use zxing for code decoding
 gem "zxing_cpp", "~> 0.1.1"
+
+# Use onebox for rich URL previews
+gem 'onebox'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

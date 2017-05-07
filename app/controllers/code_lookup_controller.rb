@@ -35,8 +35,8 @@ class CodeLookupController < ApplicationController
 
 	def show
 		begin
-			@stash = Code.find(params[:cid])
-			@stashes = @stash.stashes
+			# @stash = Code.find(params[:cid])
+			@stashes = Stash.where(code_id: params[:cid], finalized: true)
 		rescue StandardError
 			flash[:notice] = "Invalid. Try something else."
 			redirect_to action: "lookup"

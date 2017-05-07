@@ -1,2 +1,6 @@
 <h1>Post#view</h1>
-<p>Find me in app/views/post/view.html.erb</p>
+<% @elements.each do |element| %>
+	<div class="element_box">
+		<%= render "generic", stash_element: element %>
+	</div>
+<% end %>

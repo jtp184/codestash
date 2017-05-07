@@ -2,7 +2,7 @@
 	<% @elements.each do |element| %>
 	<li class="list_box">
 		<p>
-			<%= render "generic", label: element.label, kind: element.kind, content: element.content_string %>
+			<%= render "generic", stash_element: element %>
 		</p>
 	</li>
 	<% end %>
@@ -10,7 +10,7 @@
 <ul>
 	<% StashElement::CONTENT_TYPES.each do |type| %>
 	<li class = "button_box">
-		<%= link_to "#{type}", {:action => "add_item", :kind => type} %>
+		<%= link_to "#{type}", controller: 'stash_elements', :action => "new", :kind => type %>
 	</li>
 	<% end %>
 	<li class = "button_box">

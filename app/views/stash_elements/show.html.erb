@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Text content:</strong>
+  <%= @stash_element.text_content %>
+</p>
+
+<p>
+  <strong>Kind:</strong>
+  <%= @stash_element.kind %>
+</p>
+
+<p>
+  <strong>File:</strong>
+  <%= @stash_element.file %>
+</p>
+
+<%= link_to 'Edit', edit_stash_element_path(@stash_element) %> |
+<%= link_to 'Back', stash_elements_path %>

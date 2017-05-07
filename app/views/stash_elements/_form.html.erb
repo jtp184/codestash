@@ -1,16 +1,19 @@
 <%= simple_form_for @stash_element do |f| %>
+	<%= f.input(:kind, input_html: {value: params[:kind]}, as: :hidden) %>
+	<%= f.input(:stash_id, input_html: {value: session[:stash_id]}, as: :hidden) %>
 	<% case params[:kind] %>
 		<% when 'text'%> 
 			<%= f.input :text_content, as: :text, label: "Text"%>
 		<% when 'link' %>
 			<%= f.input :text_content, as: :string, label: "Link" %>
 		<% when 'sms' %>
-			<%= f.input :text_content, as: :text, label: "Phone Number"%>
+			<%= f.input :text_content, as: :string, label: "Phone Number"%>
 		<% when 'location' %>
-			<%= f.input :text_content, as: :text, label: "Coordinates"%>
+			<%= f.input :text_content, as: :string, label: "Coordinates"%>
 			<button type="button" onclick="loadGeoLocation()">Locate Me</button>
 		<% when 'photo', 'file' %>
-			<%= f.input :file, as: :file, label: "Upload #{params[:kind]}" %>
+			<%= f.input :text_content, as: :string, label: "Title" %>
+			<%= f.input :file, as: :file, label: "Upload #{params[:kind].capitalize}" %>
 		<% end %> 
 			<%= f.button :submit, label: "Add" %>
 <% end %>

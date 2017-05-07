@@ -9,6 +9,5 @@ this.lat_long = [0, 0]
 @getGeoLocation = (position) -> 
 	read_lat = position.coords.latitude
 	read_long = position.coords.longitude
-	document.getElementsByTagName('form')[0].lat.value = read_lat
-	document.getElementsByTagName('form')[0].long.value = read_long
+	document.getElementsByTagName('form')[0].stash_element_text_content.value = "#{read_lat},#{read_long}"
 	

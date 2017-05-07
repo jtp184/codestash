@@ -4,7 +4,7 @@ class StashElementsController < ApplicationController
   # GET /stash_elements
   # GET /stash_elements.json
   def index
-    @stash_elements = StashElement.all
+    # redirect_to controller: 'post', action: 'new_post'
   end
 
   # GET /stash_elements/1
@@ -25,13 +25,14 @@ class StashElementsController < ApplicationController
   # POST /stash_elements.json
   def create
     @stash_element = StashElement.new(stash_element_params)
+    puts @stash_element.inspect
 
     respond_to do |format|
       if @stash_element.save
-        format.html { redirect_to @stash_element, notice: 'Stash element was successfully created.' }
+        format.html { redirect_to controller: 'post', action: 'new_post', notice: 'Success'}
         format.json { render :show, status: :created, location: @stash_element }
       else
-        format.html { render :new }
+        format.html { redirect_to controller: 'post', action: 'new_post', notice: 'Failure'}
         format.json { render json: @stash_element.errors, status: :unprocessable_entity }
       end
     end
@@ -40,23 +41,23 @@ class StashElementsController < ApplicationController
   # PATCH/PUT /stash_elements/1
   # PATCH/PUT /stash_elements/1.json
   def update
-    respond_to do |format|
-      if @stash_element.update(stash_element_params)
-        format.html { redirect_to @stash_element, notice: 'Stash element was successfully updated.' }
-        format.json { render :show, status: :ok, location: @stash_element }
-      else
-        format.html { render :edit }
-        format.json { render json: @stash_element.errors, status: :unprocessable_entity }
-      end
+   respond_to do |format|
+    if @stash_element.save
+      format.html { redirect_to controller: 'post', action: 'new_post', notice: 'Success'}
+      format.json { render :show, status: :created, location: @stash_element }
+    else
+      format.html { redirect_to controller: 'post', action: 'new_post', notice: 'Failure'}
+      format.json { render json: @stash_element.errors, status: :unprocessable_entity }
     end
   end
+end
 
   # DELETE /stash_elements/1
   # DELETE /stash_elements/1.json
   def destroy
     @stash_element.destroy
     respond_to do |format|
-      format.html { redirect_to stash_elements_url, notice: 'Stash element was successfully destroyed.' }
+      format.html { redirect_to controller: 'post', action: 'new_post', notice: 'Stash element was successfully created.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +70,6 @@ class StashElementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stash_element_params
-      params.require(:stash_element).permit(:text_content, :kind, :file)
+      params.require(:stash_element).permit('text_content', 'kind', 'file', 'stash_id')
     end
-end
+  end

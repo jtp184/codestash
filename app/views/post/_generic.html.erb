@@ -1,4 +1,16 @@
-<li class="small_entry">
-	<img src=<%= Post.img_from_kind local_assigns[:kind] %> alt="image" class="type_image">
-	<p class="label"><%= local_assigns[:element_label] %></p>
-</li>
+<% image_tag "#{stash_element.kind.to_s}.png", style: 'width: 50px; height: 50px;' %>
+<% case stash_element.kind %>
+	<% when 'text' %>
+		<p><%= stash_element.text_content %></p>
+	<% when 'sms' %>
+		<%= link_to "Message #{stash_element.text_content}", "sms:#{stash_element.text_content}" %>
+	<% when 'link' %>
+		<%= raw(Onebox.preview(stash_element.text_content).to_s) %>
+	<% when 'photo' %>
+		<h2><%= stash_element.text_content %></h2>
+		<%= image_tag stash_element.file.url %>
+	<% when 'file' %>
+		<% image_tag 'file.png' %>
+	<% when 'location' %>
+		<p><%= stash_element.text_content %></p>
+<% end %>
