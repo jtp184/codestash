@@ -3,7 +3,6 @@ lock "3.8.1"
 
 set :application, "codestash"
 set :repo_url, "git@github.com:jtp184/codestash.git"
-set :scm, :copy
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
