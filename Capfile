@@ -31,7 +31,7 @@ require "capistrano/rbenv"
 set :rbenv_type, :user
 set :rbenv_ruby, '2.4.1'
 # require "capistrano/chruby"
-require "capistrano/bundler"
+# require "capistrano/bundler"
 require "capistrano/rails"
 require "capistrano/passenger"
 
