@@ -6,7 +6,7 @@ class PostController < ApplicationController
   	new_stash.code = Code.find(params[:cid])
   	new_stash.save
   	session[:stash_id] = new_stash.id
-  	redirect_to action: 'author'
+  	redirect_to controller: 'stash_elements', action: "new", kind: 'author'
   end
 
   def author

@@ -18,8 +18,8 @@ class Stash < ApplicationRecord
 		ret
 	end
 
-	def display_text
-		"#{self.author}\n#{self.updated_at}\n#{stash_elements.length} Item#{"s" if stash_elements.length != 1}"
+	def author
+		self.stash_elements.first.text_content
 	end
 
 	def to_s

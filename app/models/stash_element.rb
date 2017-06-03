@@ -11,4 +11,8 @@ class StashElement < ApplicationRecord
 		:file,
 		:link
 	]
+
+	def to_s
+		self.text_content
+	end
 end

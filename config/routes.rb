@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   get 'post/finish_post'
   get 'post/cancel_post'
   get 'post/add_item'
-  get 'post/author'
 
   get 'post/view'
 

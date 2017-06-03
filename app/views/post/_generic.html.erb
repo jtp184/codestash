@@ -1,16 +1,32 @@
 <% image_tag "#{stash_element.kind.to_s}.png", style: 'width: 50px; height: 50px;' %>
 <% case stash_element.kind %>
+	<% when 'author' %>
+		<div class="element_author">
+		<h2><%= "#{stash_element.text_content}'s Stash" %></h2>
+		</div>
 	<% when 'text' %>
+		<div class="element_textbox">
 		<p><%= stash_element.text_content %></p>
+		</div>
 	<% when 'sms' %>
+		<div class="element_sms">
 		<%= link_to "Message #{stash_element.text_content}", "sms:#{stash_element.text_content}" %>
+		</div>
 	<% when 'link' %>
+		<div class="element_link">
 		<%= raw(Onebox.preview(stash_element.text_content).to_s) %>
+		</div>
 	<% when 'photo' %>
-		<h2><%= stash_element.text_content %></h2>
-		<%= image_tag stash_element.file.url %>
+		<div class="element_photo">
+		<h3><%= stash_element.text_content %></h3>
+		<%= image_tag stash_element.file.url, {class: 'elementimage'} %>
+		</div>
 	<% when 'file' %>
+		<div class="element_file">
 		<% image_tag 'file.png' %>
+		</div>
 	<% when 'location' %>
+		<div class="element_location">
 		<p><%= stash_element.text_content %></p>
+		</div>
 <% end %>

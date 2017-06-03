@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 20170524160736) do
 
   create_table "stashes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "code_id"
-    t.string   "author"
     t.boolean  "finalized"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

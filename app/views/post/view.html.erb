@@ -1,6 +1,4 @@
-<h1>Post#view</h1>
+<%= link_to '<', controller: 'code_lookup', action: 'show', cid: @stash.code.id %>
 <% @elements.each do |element| %>
-	<div class="element_box">
-		<%= render "generic", stash_element: element %>
-	</div>
+<%= render "generic", stash_element: element %>
 <% end %>

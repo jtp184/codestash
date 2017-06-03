@@ -1,15 +1,45 @@
 <ul>
-	<li class="list_box">
-		<p>
-			<%= link_to "new", {:controller => 'post', :action => 'create_post', :cid => params[:cid]} %>
-		</p>
+	<li>
+		<div class="postlisting" >
+			<div class="datebox" style="color: black;">
+				02.17.17
+				6:30pm
+			</div>
+			<div class="authorbox">
+				<%= link_to('Scan Again', {action: 'lookup'}, {:class => 'postlink'})%>
+			</div>
+			<div class="countbox">
+				<
+			</div>
+		</div>
+	</li>
+	<li>
+		<div class="postlisting" >
+			<div class="datebox" style="color: black;">
+				02.17.17
+				6:30pm
+			</div>
+			<div class="authorbox">
+				<%= link_to('New', {controller: 'post', action: 'create_post', cid: params[:cid]}, {:class => 'postlink'}) %>
+			</div>
+			<div class="countbox">
+				+
+			</div>
+		</div>
 	</li>
 	<% @stashes.each do |stash| %>
-	<li class="list_box">
-		<p>
-			<%= link_to stash.display_text, {:controller => 'post', :action => 'view', :id => stash.id} %>
-		</p>
+	<li>
+		<div class="postlisting">
+			<div class="datebox">
+				<%= stash.updated_at.strftime('%m.%d.%y %I:%M%P') %>
+			</div>
+			<div class="authorbox">
+				<%= link_to(stash.author, {controller: 'post', action: 'view', id: stash.id}, {:class => 'postlink'}) %>
+			</div>
+			<div class="countbox">
+				<%= stash.stash_elements.count - 1%>
+			</div>
+		</div>
 	</li>
 	<% end %>
 </ul>
-<% link_to 'Scan a new Code', action: 'lookup' %>

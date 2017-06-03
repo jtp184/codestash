@@ -1,3 +1,65 @@
 // Place all the styles related to the CodeLookup controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+	font-family: 'Play', sans-serif;
+	color: white;
+}
+
+.imgcontainer {
+	width: 100%;
+	height: 100%;
+}
+
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+a.postlink {
+	color: white;
+	text-decoration: none;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.postlisting {
+	width: 80%;
+	background: black;
+	color: white;
+	margin-left: 10%;
+	margin-bottom: 5%;
+}
+
+.datebox {
+	font-size: 50%;
+	width: 15%;
+	display: inline-block;
+	padding-top: 1.5%;
+	padding-left: 2%;
+	float: left;
+}
+
+.authorbox {
+	width: 60%;
+	padding-bottom: 1%;
+	text-align: center;
+	font-size: 150%;
+	display: inline-block;
+}
+
+.countbox {
+	float: right;
+	height: 100%;
+	font-size: 100%;
+	padding-top: 1.5%;
+	/*padding-bottom: 3%;*/
+	padding-right: 2%;
+	display: inline-block;
+}
