@@ -28,7 +28,8 @@
 		</div>
 	<% when 'file' %>
 		<div class="element_file">
-		<% image_tag 'file.png' %>
+		<%= link_to image_tag(asset_path('file.png'), size: 30), stash_element.file.url %>
+		<label class="filelabel"><%= link_to stash_element.file_file_name.truncate(25), stash_element.file.url %></span>
 		</div>
 	<% when 'location' %>
 		<div class="element_location">

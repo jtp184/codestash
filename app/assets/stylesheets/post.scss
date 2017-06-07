@@ -4,6 +4,17 @@
 
 img.elementimage {
 	width: 100%;
+	float: left;
+}
+
+a:link {
+    color: white;
+    text-decoration: none;
+}
+
+a:visited {
+    color: white;
+    text-decoration: none;
 }
 
 div.button_list {
@@ -18,6 +29,15 @@ div.element_link {
 	width: 100%;
 }
 
+div.element_file {
+	background: black;
+}
+
+label.filelabel {
+	color: white;
+	padding-top: 2%;
+	float: right;
+}
 
 span.button_box {
 
