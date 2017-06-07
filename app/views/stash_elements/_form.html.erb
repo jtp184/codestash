@@ -3,19 +3,25 @@
 	<%= f.input(:stash_id, input_html: {value: session[:stash_id]}, as: :hidden) %>
 	<% case params[:kind] %>
 		<% when 'author' %>
-			<%= f.input :text_content, as: :string, label: "Author's Name" %>
+			<%= f.input :text_content, as: :string, label: "Author's Name " %>
 		<% when 'text'%> 
-			<%= f.input :text_content, as: :text, label: "Text"%>
+			<%= f.input :text_content, as: :text, label: "Text "%>
 		<% when 'link' %>
-			<%= f.input :text_content, as: :string, label: "Link" %>
+			<%= f.input :text_content, as: :string, label: "Link " %>
 		<% when 'sms' %>
-			<%= f.input :text_content, as: :string, label: "Phone Number"%>
+			<%= f.input :text_content, as: :string, label: "Phone Number "%>
 		<% when 'location' %>
-			<%= f.input :text_content, as: :string, label: "Coordinates"%>
+			<%= f.input :text_content, as: :string, label: "Coordinates "%>
 			<button type="button" onclick="loadGeoLocation()">Locate Me</button>
 		<% when 'photo', 'file' %>
-			<%= f.input :text_content, as: :string, label: "Title" %>
-			<%= f.input :file, as: :file, label: "Upload #{params[:kind].capitalize}" %>
+			<%= f.input :text_content, as: :string, label: "Title " %>
+			<%= f.input :file, as: :file, label: "#{params[:kind].capitalize} " %>
 		<% end %> 
-			<%= f.button :submit, label: "Add" %>
+		<div class="submit_container">
+		<%= f.button :submit, label: "Add " %>
+		</div>
+		<div class="submit_container">
+		<%= link_to (image_tag (asset_path "back.png"), size: 20), controller: 'post', action: 'new_post' %>
+		</div>
+
 <% end %>

@@ -2,6 +2,61 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+html {
+	width: 100%;
+	height: 100%;
+}
+
 body {
 	color: black;
+}
+
+form {
+	color: white;
+	background: black;
+	
+}
+
+label {
+	padding-right: 2%;
+}
+
+.stash_element_text_content{
+	padding-top: 5%;
+	padding-bottom: 5%;
+	background: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.stash_element_file{
+	margin-left: 25%;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	background: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.file {
+	width: 50%;
+}
+
+.submit_container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 3%;
+	padding-top: 3%;
+}
+
+input {
+	background-color: white;
+	color: black;
+	text-align: center;
+	text-decoration: none;
+	border: none;
+	display: inline-block;
 }

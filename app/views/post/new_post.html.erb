@@ -7,16 +7,16 @@
 	</li>
 	<% end %>
 </ul>
-<ul>
+<div class = "button_list">
 	<% StashElement::CONTENT_TYPES.each do |type| %>
-	<li class = "button_box">
-		<%= link_to "#{type}", controller: 'stash_elements', :action => "new", :kind => type %>
-	</li>
+	<span class = "button_box">
+		<%= link_to (image_tag (asset_path "#{type}.png"), size: 20), controller: 'stash_elements', :action => "new", :kind => type %>
+	</span>
 	<% end %>
-	<li class = "button_box">
-		<%= link_to "Finalize Stash", {:action => "finish_post"} %>
-	</li>
-	<li class = "button_box">
-		<%= link_to "Discard Stash", {:action => "cancel_post"} %>
-	</li>
-</ul>
+	<span class = "button_box">
+		<%= link_to (image_tag (asset_path "save.png"), size: 20), {:action => "finish_post"} %>
+	</span>
+	<span class = "button_box">
+		<%= link_to (image_tag (asset_path "cancel.png"), size: 20), {:action => "cancel_post"} %>
+	</span>
+</div>

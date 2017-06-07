@@ -13,8 +13,13 @@
 		<%= link_to "Message #{stash_element.text_content}", "sms:#{stash_element.text_content}" %>
 		</div>
 	<% when 'link' %>
+		<% prev = Onebox.preview(stash_element.text_content).to_s %> 
+		<% if prev == "" %>
+			<%= link_to "Link to #{PostHelper.get_url_base(stash_element.text_content)}", stash_element.text_content %>
+		<% else %>
 		<div class="element_link">
-		<%= raw(Onebox.preview(stash_element.text_content).to_s) %>
+			<%= raw(prev) %>
+		<% end %>
 		</div>
 	<% when 'photo' %>
 		<div class="element_photo">
