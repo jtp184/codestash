@@ -6,7 +6,6 @@ class StashElement < ApplicationRecord
 	CONTENT_TYPES = [
 		:text,
 		:sms,
-		:location,
 		:photo,
 		:file,
 		:link

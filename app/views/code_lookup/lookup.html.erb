@@ -1,6 +1,6 @@
 <p><%= flash[:notice] if flash[:notice] %></p>
-<div class="imgcontainer" class="center">
-<%= (image_tag (asset_path "upload_button.png"), id: "button", size: 60) %>
+<div class="imgcontainer">
+<%= (image_tag (asset_path "upload_button.png"), id: "button", size: 100) %>
 </div>
 <div id="upload_pane">
 	<%= form_tag({action: :upload}, multipart: true) do %>
