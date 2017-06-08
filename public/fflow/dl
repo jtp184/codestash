@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+require 'psych'
+require 'open-uri'
+require 'net/http'
+
+@load_from = (ARGV[0] || File.dirname(__FILE__) + '/labels')
+@save_to = (ARGV[1] || File.dirname(__FILE__) + '/images')
+
+def load_labels
+  Dir.entries(@load_from).delete_if { |e| e =~ /^\.+$/ }.each do |file|
+    per_label(@load_from + '/' + file) if file =~ /\w+\.ya?ml/
+  end
+end
+
+def per_label(filename)
+  label = Psych.load(open(filename))
+  download_file(filename: label[:filename], url: label[:url])
+end
+
+def download_file(**opts)
+	# puts "Downloading #{opts[:filename]}"
+  File.open(@save_to + '/' + opts[:filename], 'w') do |file|
+    file.write Net::HTTP.get(URI(opts[:url]))
+  end
+end
+
+load_labels

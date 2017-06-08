@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170524160736) do
+ActiveRecord::Schema.define(version: 20170608051626) do
 
   create_table "codes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "code_value"
@@ -20,9 +20,10 @@ ActiveRecord::Schema.define(version: 20170524160736) do
 
   create_table "stash_bots", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.string   "unique_idnum"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.text     "prefs",       limit: 65535
+    t.string   "secret_code"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "stash_elements", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
