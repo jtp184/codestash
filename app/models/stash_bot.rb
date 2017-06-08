@@ -44,7 +44,7 @@ class StashBot < ApplicationRecord
 	end
 
 	def stash_photo(**opts)
-		new_element = StashElement.new(text_content: "Photo", kind: 'photo', stash_id: opts[:stash].id)
+		new_element = StashElement.new(text_content: opts[:title], kind: 'photo', stash_id: opts[:stash].id)
 		new_element.file = opts[:image]
 		new_element.save
 		new_element
