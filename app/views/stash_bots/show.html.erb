@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @stash_bot.name %>
+</p>
+
+<p>
+  <strong>Secret code:</strong>
+  <%= @stash_bot.secret_code %>
+</p>
+
+<p>
+  <strong>Prefs:</strong>
+  <%= @stash_bot.prefs %>
+</p>
+
+<%= link_to 'Edit', edit_stash_bot_path(@stash_bot) %> |
+<%= link_to 'Back', stash_bots_path %>

@@ -1,0 +1,32 @@
+<ul>
+	<li>
+		<!-- <div class="postlisting" >
+			<div class="datebox" style="color: black;">
+				02.17.17
+				6:30pm
+			</div>
+			<div class="authorbox">
+				<%= link_to('Scan Again', {action: 'lookup'}, {:class => 'postlink'})%>
+			</div>
+			<div class="countbox">
+				<
+			</div>
+		</div> -->
+		<%= link_to (image_tag (asset_path "back_invert.png"), size: 20), controller: 'code_lookup', action: 'lookup' %>
+	</li>
+	<% @stashes.each do |stash| %>
+	<li>
+		<div class="postlisting">
+			<div class="datebox">
+				<%= stash.updated_at.strftime('%m.%d.%y %I:%M%P') %>
+			</div>
+			<div class="authorbox">
+				<%= link_to(stash.author, {controller: 'post', action: 'view', id: stash.id}, {:class => 'postlink'}) %>
+			</div>
+			<div class="countbox">
+				<%= stash.stash_elements.count - 1%>
+			</div>
+		</div>
+	</li>
+	<% end %>
+</ul>

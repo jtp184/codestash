@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :stash_bots
   resources :stash_elements
 
 

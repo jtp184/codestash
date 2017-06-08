@@ -6,6 +6,16 @@ class StashBot < ApplicationRecord
 	POST_FREQ = 10
 	serialize(:prefs, Array)
 
+	def self.create_posts(**opts)
+		opts[:bots].each do |bot|
+			bot.post_creator(code_id: opts[:codes].sample)
+		end
+	end
+
+	def self.posts_by(bid)
+		
+	end
+
 	def rank_image(labels)
 		result = 0
 
@@ -18,7 +28,6 @@ class StashBot < ApplicationRecord
 
 	# For requesting content to post.
 	def request_image
-
 		choices = []
 
 		search_dir = Rails.root.join("public/fflow/labels")
@@ -28,6 +37,10 @@ class StashBot < ApplicationRecord
 
 		choices.sort_by! { |c| rank_image(c[:labels]) }
 		choices.first[:image] = File.open(Rails.root.join("public/fflow/images/#{choices.first[:filename]}"))
+
+		File.delete(Rails.root.join("public/fflow/labels/#{/\d+(?=\.\w+)/.match choices.first[:filename]}.yml"))
+
+		choices.first
 	end
 
 	def stash_photo(**opts)
@@ -51,7 +64,7 @@ class StashBot < ApplicationRecord
 		end
 
 		grabbed_images.each do |grab_image|
-			stash_photo(image: grab_image, stash: post)
+			stash_photo(image: grab_image[:image], stash: post, title: grab_image[:title])
 		end
 
 		Stash.finish(post.id)

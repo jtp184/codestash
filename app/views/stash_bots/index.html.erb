@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Stash Bots</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Secret code</th>
+      <th>Prefs</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stash_bots.each do |stash_bot| %>
+      <tr>
+        <td><%= stash_bot.name %></td>
+        <td><%= stash_bot.secret_code %></td>
+        <td><%= stash_bot.prefs.join(", ").to_s.truncate(50) %></td>
+        <td><%= link_to 'Show', stash_bot %></td>
+        <td><%= link_to 'Edit', edit_stash_bot_path(stash_bot) %></td>
+        <td><%= link_to 'Destroy', stash_bot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Stash Bot', new_stash_bot_path %>

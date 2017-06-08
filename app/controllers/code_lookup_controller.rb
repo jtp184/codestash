@@ -20,10 +20,10 @@ class CodeLookupController < ApplicationController
 		puts resulting_key = ZXing.decode(URI.parse(URI.encode(resolved_filename.to_s)))
 
 		if resulting_key.nil? || resulting_key == ''
-			flash[:notice] = "Not a Clear enough Picture"
+			flash[:notice] = "Hmm... Try again?"
 			File.delete(resolved_filename)
 			redirect_to action: "lookup"
-		elsif false 
+		elsif StashBotsHelper.is_bot?(resulting_key) 
 			# TODO: Add bot code
 		else
 			# flash[:notice] = "Success! #{resulting_key}"
