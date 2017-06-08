@@ -8,7 +8,7 @@ class StashBot < ApplicationRecord
 
 	def self.create_posts(**opts)
 		opts[:bots].each do |bot|
-			bot.post_creator(code_id: opts[:codes].sample)
+			bot.post_creator(code_id: opts[:codes].sample.id)
 		end
 	end
 
