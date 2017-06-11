@@ -7,6 +7,7 @@
 	</li>
 	<% end %>
 </ul>
+<footer>
 <div class = "button_list">
 	<% StashElement::CONTENT_TYPES.each do |type| %>
 	<span class = "button_box">
@@ -20,3 +21,4 @@
 		<%= link_to (image_tag (asset_path "cancel.png"), size: 20), {:action => "cancel_post"} %>
 	</span>
 </div>
+</footer>
